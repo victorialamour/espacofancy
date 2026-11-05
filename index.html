@@ -1,0 +1,897 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Espaço Fancy · Unhas, sobrancelha e cabelo em Boa Viagem, Recife</title>
+<meta name="description" content="Espaço Fancy: unhas, spa dos pés, sobrancelha e cabelo em Boa Viagem, Recife. Nota 5,0 no Google. Agende pelo WhatsApp.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;1,6..96,400&family=Cormorant+Garamond:ital,wght@0,600;1,500&family=Hanken+Grotesk:wght@400;500;600;700&family=Italiana&family=Permanent+Marker&family=Pinyon+Script&display=swap" rel="stylesheet">
+<style>
+/* Poucas palavras, uma ideia por seção. Escala de texto: 15 / 17 / 22 / 34 / 54.
+   Serifa só em títulos (sem caixa alta). Texto corrido em sans. Tudo alinhado numa grade de 1180px. */
+:root{
+  --ink:#231D19; --soft:#6B6159; --mocha:#8C715B; --mocha-d:#6B5442; --paper:#F7F3EE; --line:#E7E0D7; --white:#fff;
+  --serif:'Bodoni Moda',Georgia,serif; --sans:'Hanken Grotesk',system-ui,sans-serif;
+  --pad:clamp(20px,5vw,72px); --ease:cubic-bezier(.22,.8,.24,1);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:70px}
+body{background:var(--white);color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:2px solid var(--mocha);outline-offset:3px}
+h1,h2,h3{font-family:var(--serif);font-weight:400;letter-spacing:-.015em;line-height:1.1}
+h2{font-size:clamp(2rem,4vw,3.4rem)}
+h2 em,h3 em{font-style:italic;color:var(--mocha)}
+.wrap{max-width:1180px;margin:0 auto}
+section{padding:clamp(64px,8vw,112px) var(--pad)}
+.why{padding-top:clamp(20px,3vw,40px);padding-bottom:clamp(16px,2.5vw,32px)}
+.rv{opacity:0;transform:translateY(18px);transition:opacity .9s var(--ease),transform .9s var(--ease);transition-delay:calc(var(--d,0)*110ms)}
+.rv.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
+
+.btn{display:inline-block;background:var(--ink);color:#fff;padding:15px 28px;font-weight:600;font-size:.95rem;border-radius:999px;transition:background .3s var(--ease),transform .2s}
+.btn:hover{background:var(--mocha-d)}
+.btn:active{transform:scale(.98)}
+.btn.light{background:#fff;color:var(--ink)}
+.btn.light:hover{background:#efe6dc}
+.link{font-weight:600;font-size:.95rem;border-bottom:1px solid currentColor;padding-bottom:2px}
+.link::after{content:" →"}
+
+/* menu: aparece depois da abertura, como em site */
+.menu{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;justify-content:space-between;align-items:center;padding:12px var(--pad);background:rgba(255,255,255,.96);border-bottom:1px solid var(--line);transform:translateY(-100%);transition:transform .5s var(--ease)}
+.menu.show{transform:none}
+.menu .brand{font-family:var(--serif);font-size:1.35rem}
+.menu nav{display:flex;gap:28px;font-size:.92rem;color:var(--soft)}
+.menu nav a:hover{color:var(--ink)}
+.menu .btn{padding:10px 20px;font-size:.88rem}
+
+/* 1 abertura */
+.hero{position:relative;min-height:max(560px,calc(100svh - 76px));margin-bottom:64px;display:grid;place-items:center;text-align:center;color:#fff;padding:0 var(--pad);isolation:isolate;
+  background:linear-gradient(rgba(32,22,16,.35),rgba(32,22,16,.5)),var(--hero-img,none),linear-gradient(150deg,#6B5442,#8C715B 55%,#B39880);background-size:cover;background-position:center}
+
+.logo{display:flex;flex-direction:column;align-items:center;opacity:0;animation:in 1.5s .1s var(--ease) forwards}
+.logo small{font-size:clamp(.75rem,1.4vw,.95rem);letter-spacing:.5em;padding-left:.5em;font-weight:500}
+.logo b{font-family:var(--serif);font-weight:400;font-size:clamp(3.8rem,11vw,8.5rem);line-height:.85;letter-spacing:-.04em}
+.hero p{margin-top:24px;font-family:var(--serif);font-style:italic;font-size:clamp(1.15rem,2vw,1.6rem);opacity:0;animation:in 1.5s .5s var(--ease) forwards}
+@keyframes in{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+.top{position:absolute;top:0;right:0;padding:26px var(--pad);font-size:.92rem;font-weight:600}
+.top a{border-bottom:1px solid rgba(255,255,255,.7);padding-bottom:2px}
+
+.hero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;z-index:-2}
+.hero::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(rgba(32,22,16,.38),rgba(32,22,16,.52))}
+@media(prefers-reduced-motion:reduce){.hero-video{display:none}}
+/* abertura minimalista: nome pequeno de um lado, selo do outro */
+.hero{display:block}
+.hero-bottom{position:absolute;left:0;right:0;bottom:0;padding:0 var(--pad) clamp(24px,4vw,44px);display:flex;justify-content:space-between;align-items:flex-end;gap:20px}
+.brand-sm{display:flex;flex-direction:column;opacity:0;animation:in 1.4s .3s var(--ease) forwards}
+.brand-sm small{font-size:.62rem;letter-spacing:.5em;font-weight:500}
+.brand-sm b{font-family:var(--serif);font-weight:400;font-size:clamp(1.9rem,3.4vw,2.8rem);line-height:1;letter-spacing:-.02em}
+.brand-sm p{margin:6px 0 0;font-family:var(--serif);font-style:italic;font-size:.95rem;opacity:.9;animation:none}
+/* abertura: nome grande no centro */
+.hero{display:grid;place-items:center;text-align:center}
+.hero-center{display:flex;flex-direction:column;align-items:center}
+.hero-center .logo{display:flex;flex-direction:column;align-items:center}
+.hero-center .logo small{font-size:clamp(.75rem,1.4vw,.95rem);letter-spacing:.5em;padding-left:.5em;font-weight:500}
+.hero-center .logo b{font-family:var(--serif);font-weight:400;font-size:clamp(3.8rem,11vw,8.5rem);line-height:.85;letter-spacing:-.04em}
+.hero-center p{margin-top:24px;font-family:var(--serif);font-style:italic;font-size:clamp(1.15rem,2vw,1.6rem)}
+/* o nome entra quando o esmalte some (corte em ~5,4 s do vídeo) e sai quando o vídeo recomeça */
+.hero-center .logo,.hero-center p{opacity:0;transform:translateY(12px);transition:opacity 1.2s var(--ease),transform 1.2s var(--ease)}
+.hero-center p{transition-delay:.35s}
+.hero.reveal .hero-center .logo,.hero.reveal .hero-center p{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.hero-center .logo,.hero-center p{opacity:1;transform:none;transition:none}}
+
+/* consulta de horário: vidro sobre a parte de baixo da abertura; fica branca ao preencher */
+.check{position:absolute;left:0;right:0;bottom:0;transform:translateY(50%);padding:0 var(--pad);z-index:3;text-align:left}
+.check form{display:flex;align-items:center;max-width:960px;margin:0 auto;padding:8px 8px 8px 10px;border-radius:999px;
+  background:rgba(38,27,20,.66);border:1px solid rgba(255,255,255,.4);color:#fff;
+  -webkit-backdrop-filter:blur(14px) saturate(1.2);backdrop-filter:blur(14px) saturate(1.2);
+  box-shadow:0 18px 40px -22px rgba(0,0,0,.55);
+  transition:background .28s cubic-bezier(.23,1,.32,1),color .28s cubic-bezier(.23,1,.32,1),border-color .28s cubic-bezier(.23,1,.32,1),box-shadow .28s cubic-bezier(.23,1,.32,1)}
+@supports not ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))){.check form{background:rgba(35,25,18,.5)}}
+.check form:hover{background:rgba(38,27,20,.76)}
+.check form:focus-within,.check form.touched{background:#fff;color:#231D19;border-color:#fff;box-shadow:0 18px 40px -16px rgba(0,0,0,.5)}
+.check .f{flex:1;padding:6px 22px;border-right:1px solid rgba(255,255,255,.35);min-width:0;display:flex;flex-direction:column;transition:border-color .28s}
+.check form:focus-within .f,.check form.touched .f{border-color:#E4DCD2}
+.check label{font-size:.75rem;font-weight:600;color:rgba(255,255,255,.88);letter-spacing:.02em;transition:color .28s}
+.check form:focus-within label,.check form.touched label{color:#8C715B}
+.check input,.check select{width:100%;border:0;background:transparent;color:inherit;font:500 .95rem var(--sans);padding:2px 0;border-radius:0;appearance:none;-webkit-appearance:none;min-height:28px;color-scheme:dark}
+.check form:focus-within input,.check form.touched input,.check form:focus-within select,.check form.touched select{color-scheme:light}
+.check select option,.check select optgroup{color:#231D19;background:#fff}
+.check select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1.5 6 6.5l5-5' fill='none' stroke='%23ffffff' stroke-width='1.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 2px center;padding-right:22px}
+.check form:focus-within select,.check form.touched select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1.5 6 6.5l5-5' fill='none' stroke='%23231D19' stroke-width='1.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E")}
+.check input:focus-visible,.check select:focus-visible{outline:2px solid currentColor;outline-offset:3px;border-radius:2px}
+.check .go{background:#fff;color:#231D19;border:0;border-radius:999px;padding:16px 28px;font:600 .95rem var(--sans);cursor:pointer;white-space:nowrap;transition:background .28s cubic-bezier(.23,1,.32,1),color .28s,transform .16s cubic-bezier(.23,1,.32,1)}
+.check form:focus-within .go,.check form.touched .go{background:#231D19;color:#fff}
+.check .go:hover{background:#F0E6DA}
+.check form:focus-within .go:hover,.check form.touched .go:hover{background:#6F5440}
+.check .go:active{transform:scale(.97)}
+.check .go[disabled]{opacity:.45;cursor:not-allowed}
+.check .msg{max-width:960px;margin:12px auto 0;min-height:1.2em;font:400 .75rem/1.4 var(--sans);font-style:normal;opacity:1;animation:none;color:#7A6B60;text-align:center}
+.check .msg.err{color:#A52A3A}
+/* versão compacta da barra de consulta */
+.check form{max-width:720px;padding:6px 6px 6px 8px}
+.check .f{padding:4px 16px}
+.check label{font-size:.68rem}
+.check input,.check select{font-size:.86rem;min-height:24px}
+.check .go{padding:12px 22px;font-size:.88rem}
+.check .msg{max-width:720px;margin-top:10px;font-size:.7rem}
+@media(max-width:900px){
+ .check form{flex-direction:column;border-radius:22px;align-items:stretch;padding:12px}
+ .check .f{border-right:0;border-bottom:1px solid rgba(255,255,255,.3);padding:8px 10px}
+ .check form:focus-within .f,.check form.touched .f{border-bottom-color:#E4DCD2}
+ .check .go{margin-top:8px}
+ .hero{min-height:max(640px,calc(100svh - 160px));padding-bottom:150px;margin-bottom:150px}
+}
+@media(prefers-reduced-motion:reduce){.check form,.check .f,.check label,.check .go{transition:none}}
+
+/* 2 faixa de prova */
+.facts{border-bottom:1px solid var(--line);padding:22px var(--pad)}
+.facts .wrap{display:flex;justify-content:space-between;gap:12px 32px;flex-wrap:wrap;font-size:.95rem;color:var(--soft)}
+.facts b{color:var(--ink);font-weight:600}
+.facts .st{color:var(--mocha);letter-spacing:2px;margin-right:6px}
+
+/* 3 apresentação do espaço: coluna centralizada, estrela entre os parágrafos */
+.intro8{max-width:620px;margin:0 auto;text-align:center}
+.intro8 h2{font-size:clamp(2.2rem,4.6vw,3.6rem);margin-bottom:22px}
+.intro8 h2 em{font-style:normal;color:#6F5440}
+.intro8 p{color:var(--soft);max-width:60ch;margin:0 auto}
+.star8{display:flex;justify-content:center;margin:22px 0}
+/* 3 por que */
+.why .head{display:grid;grid-template-columns:1fr 1fr;gap:30px 60px;align-items:end;margin-bottom:clamp(36px,5vw,64px)}
+.why .head p{color:var(--soft);max-width:36ch}
+.three{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(20px,3vw,40px)}
+.three article .ph{aspect-ratio:4/5;margin-bottom:18px}
+.three h3{font-size:1.5rem;margin-bottom:8px}
+.three p{color:var(--soft);font-size:.97rem;max-width:32ch;margin-bottom:12px}
+.said{margin-top:clamp(30px,4vw,52px);padding-top:22px;border-top:1px solid var(--line);color:var(--soft)}
+.ph{position:relative;background:#E8DED3;border-radius:14px}
+.ph::after{content:attr(data-label);position:absolute;inset:auto 0 16px;text-align:center;font-size:12px;color:rgba(107,84,66,.65)}
+
+/* sobre nós: nomes esmaecidos, título manuscrito, texto pequeno e foto larga */
+.about8{max-width:1180px;margin:0 auto}
+.cats8{display:flex;justify-content:space-between;gap:10px 24px;flex-wrap:wrap;font-family:var(--serif);font-size:clamp(1.2rem,2.4vw,1.8rem);color:#CFC6BC;letter-spacing:.01em}
+.head8{display:grid;grid-template-columns:1.25fr .75fr;gap:clamp(24px,5vw,80px);align-items:start;margin:0 0 clamp(30px,5vw,60px)}
+.script8{font-family:'Pinyon Script','Segoe Script',cursive;font-weight:400;font-size:clamp(2.2rem,4.2vw,3.5rem);line-height:1.1;color:#6F5440;letter-spacing:0}
+.txt8 p{font-size:.92rem;line-height:1.65;color:var(--soft);max-width:46ch;margin-bottom:12px}
+.pic8{position:relative;margin:0;border-radius:18px;overflow:hidden;aspect-ratio:16/9;background:#E8DED3}
+.pic8 img{width:100%;height:100%;object-fit:cover;object-position:50% 46%;display:block}
+.pic8::after{content:"";position:absolute;inset:auto 0 0 0;height:36%;background:linear-gradient(transparent,rgba(30,20,14,.5));pointer-events:none}
+.pic8 figcaption{position:absolute;left:20px;bottom:16px;z-index:1;color:#fff;font-size:.88rem;font-weight:500}
+@media(max-width:860px){.head8{grid-template-columns:1fr}.pic8{aspect-ratio:4/5}.pic8 img{object-position:50% 40%}.cats8{justify-content:flex-start;gap:6px 18px}}
+/* sobre nós, estilo revista: título manuscrito, letra capitular e foto alta */
+.mag6{display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(24px,5vw,72px);align-items:center}
+.txt6{display:flex;flex-direction:column;justify-content:center;padding:clamp(8px,2vw,24px) 0}
+.mag6 .script8{margin-bottom:clamp(26px,3.6vw,42px)}
+.p6,.p6b{font-size:1.02rem;line-height:1.8;color:var(--soft);max-width:48ch}
+.p6{font-size:1.1rem;color:#4A3F37;margin-bottom:18px}
+.p6::first-letter{font-family:var(--serif);font-size:3.9rem;line-height:.8;float:left;padding:6px 12px 0 0;color:#6F5440}
+.pic6{margin:0;border-radius:18px;overflow:hidden;aspect-ratio:1/1.08;max-height:540px;width:100%;background:#E8DED3}
+.pic6 img{width:100%;height:100%;object-fit:cover;object-position:50% 52%;display:block}
+@media(max-width:860px){.mag6{grid-template-columns:1fr}.pic6{aspect-ratio:4/5;max-height:none}}
+/* foto da dona, redonda, sobre o canto da foto do espaço */
+.pic6w{position:relative;margin-bottom:34px}
+.owner{position:absolute;left:clamp(-34px,-2.4vw,-14px);bottom:-34px;margin:0;width:40%;max-width:210px;aspect-ratio:1;border-radius:50%;overflow:hidden;border:6px solid #fff;box-shadow:0 22px 40px -20px rgba(35,29,25,.6)}
+.owner img{display:block;width:100%;height:100%;max-width:none;object-fit:cover;object-position:52% 13%;transform:scale(1.7);transform-origin:53% 50%}
+.owner::after{content:"";position:absolute;inset:0;border-radius:50%;box-shadow:inset 0 0 0 1px rgba(184,151,90,.75)}
+@media(max-width:860px){.owner{left:12px;width:34%;max-width:150px}}
+/* serviços e valores: painéis de preço alternados com fotos */
+.vals{padding:clamp(24px,3.5vw,48px) var(--pad) clamp(64px,9vw,120px)}
+.vtitle{font-family:'Pinyon Script','Segoe Script',cursive;font-weight:400;font-size:clamp(2.2rem,4.2vw,3.5rem);line-height:1.1;color:#6F5440;text-align:center;letter-spacing:0;margin-bottom:clamp(26px,4vw,48px)}
+.vgrid{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;grid-auto-rows:minmax(440px,auto);gap:clamp(10px,1.4vw,16px)}
+.vp{background:#ECE6DE;padding:clamp(28px,4vw,56px) clamp(22px,4vw,56px);display:flex;flex-direction:column}
+.vp h3{font-family:var(--serif);font-weight:400;font-size:clamp(1.9rem,3vw,2.5rem);text-align:center;letter-spacing:-.015em;line-height:1.1}
+.vp .vs{text-align:center;font-size:.78rem;color:var(--soft);margin:6px 0 clamp(20px,3vw,34px)}
+.vp ul{list-style:none;flex:1}
+.vp li{display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:7px 0;font-size:.9rem;line-height:1.4}
+.vp li span{flex:1}
+.vp li small{display:block;font-size:.74rem;color:var(--soft);line-height:1.4;margin-top:1px}
+.vp li b{font-weight:600;white-space:nowrap;font-variant-numeric:tabular-nums lining-nums}
+.vp li.g{display:block;font-weight:700;font-size:.82rem;margin-top:16px;padding-bottom:2px}
+.vp .vcta{align-self:center;margin-top:clamp(22px,3vw,34px);font-size:.85rem;font-weight:600;color:var(--ink);border-bottom:1px solid currentColor;padding-bottom:2px;text-decoration:none}
+.vp .vcta:hover{color:#6F5440}
+/* painéis de preço no estilo cartão com palavra em script cortando a base */
+.vp{position:relative;overflow:hidden;background:#F3E6DA}
+.vp h3{font-family:'Italiana',serif;font-weight:400;font-size:clamp(1.5rem,2.4vw,2rem);letter-spacing:.34em;text-transform:uppercase;text-align:left;line-height:1.2;color:#6F5440;margin:0}
+.vp h3 .l{display:inline-block;opacity:0;transform:translateY(-12px)}
+.vp.in h3 .l{animation:vl .7s var(--ease) forwards;animation-delay:calc(var(--i)*60ms + 150ms)}
+@keyframes vl{to{opacity:1;transform:none}}
+.vp .vs{font-weight:600;font-size:clamp(.72rem,1vw,.82rem);letter-spacing:.24em;text-transform:uppercase;text-align:left;color:#6F5440;margin:6px 0 0}
+.vp ul{margin-top:clamp(22px,3vw,34px)}
+.vp li{padding:13px 0;border-bottom:1px solid rgba(111,84,64,.32);color:#4A372B}
+.vp li:last-child{border-bottom:0}
+.vp li.g{border-bottom:0;margin-top:18px;padding:0 0 2px;text-align:center;letter-spacing:.2em;text-transform:uppercase;font-size:.72rem;color:#6F5440}
+.vp li b{color:#6F5440}
+/* fundo areia translúcido com brilho sutil */
+.vp{background:linear-gradient(135deg,rgba(243,230,218,.78),rgba(238,223,208,.62));-webkit-backdrop-filter:blur(12px) saturate(1.1);backdrop-filter:blur(12px) saturate(1.1);box-shadow:inset 0 0 0 1px rgba(255,255,255,.7),inset 0 1px 0 #fff;isolation:isolate}
+.vp>*{position:relative;z-index:1}
+.vp::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;
+ background:
+  radial-gradient(1.6px 1.6px at 12% 18%,#fff 98%,transparent),radial-gradient(1.2px 1.2px at 78% 12%,#E9C877 98%,transparent),radial-gradient(1.8px 1.8px at 44% 36%,#fff 98%,transparent),radial-gradient(1.2px 1.2px at 90% 48%,#fff 98%,transparent),radial-gradient(1.4px 1.4px at 24% 62%,#E9C877 98%,transparent),radial-gradient(1.6px 1.6px at 66% 74%,#fff 98%,transparent),radial-gradient(1.2px 1.2px at 8% 88%,#fff 98%,transparent),radial-gradient(1.4px 1.4px at 54% 92%,#E9C877 98%,transparent);
+ background-size:100% 100%;animation:twk 5s ease-in-out infinite alternate}
+.vp:nth-of-type(2n)::before{animation-delay:-2.4s;transform:scaleX(-1)}
+@keyframes twk{0%{opacity:.25}50%{opacity:1}100%{opacity:.4}}
+.vp{background-image:linear-gradient(105deg,transparent 40%,rgba(255,255,255,.38) 50%,transparent 60%),linear-gradient(135deg,rgba(243,230,218,.78),rgba(238,223,208,.62));background-size:250% 100%,100% 100%;background-position:130% 0,0 0;animation:shm 11s ease-in-out infinite}
+@keyframes shm{0%,55%{background-position:130% 0,0 0}100%{background-position:-30% 0,0 0}}
+@media(prefers-reduced-motion:reduce){.vp,.vp::before{animation:none}.vp h3 .l{opacity:1;transform:none;animation:none}}
+/* animação dos cartões de preço: linhas entram em sequência, traços se desenham, preços contam, foto assenta */
+.vp li{position:relative;border-bottom:0}
+.vp li::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:rgba(111,84,64,.32);transition:background .3s}
+.vp li:last-child::after,.vp li.g::after{display:none}
+.vp li:hover::after{background:#B8975A}
+.vp li b{transition:transform .35s var(--ease)}
+.vp li:hover b{transform:translateX(-4px)}
+.vp .vcta{opacity:0;transition:opacity .7s var(--ease) 1.5s,color .2s}
+.vp.in .vcta{opacity:1}
+.vf img{transform:scale(1.1);transition:transform 1.8s var(--ease)}
+.vf.in img{transform:none}
+/* cortina: o bloco de preços se revela de cima para baixo, com um fio dourado na borda */
+.vp ul{clip-path:inset(0 0 100% 0)}
+.vp.in ul{animation:vcurtain 1.5s cubic-bezier(.6,.1,.25,1) .2s forwards}
+@keyframes vcurtain{to{clip-path:inset(0 0 -4px 0)}}
+.vp ul::before{content:"";position:absolute;left:0;right:0;top:0;height:2px;z-index:2;background:linear-gradient(90deg,transparent,#E9C877,transparent);opacity:0}
+.vp.in ul::before{animation:vedge 1.5s cubic-bezier(.6,.1,.25,1) .2s forwards}
+@keyframes vedge{0%{top:0;opacity:1}90%{opacity:1}100%{top:100%;opacity:0}}
+@media(prefers-reduced-motion:reduce){.vp .vcta{opacity:1;transition:none}.vp ul{clip-path:none;animation:none}.vp ul::before{display:none}.vf img{transform:none;transition:none}}
+.vf{margin:0;overflow:hidden;background:#E8DED3;position:relative;min-height:420px}
+.vf img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+@media(max-width:860px){.vgrid{grid-template-columns:1fr;grid-auto-rows:auto}.vf,.vf[style]{min-height:0!important;aspect-ratio:4/3}.vp{padding:30px 22px}}
+/* foto no topo de cada cartão de preço */
+.vcph{margin:-26px -20px 20px;height:clamp(150px,13vw,190px);overflow:hidden;background:#E8DED3}
+.vcph img{width:100%;height:100%;object-fit:cover;display:block;transform:scale(1.12);transition:transform 1.8s var(--ease)}
+.vp.in .vcph img{transform:none}
+@media(max-width:700px){.vcph{margin:-26px -22px 20px;height:190px}}
+@media(prefers-reduced-motion:reduce){.vcph img{transform:none;transition:none}}
+/* preços: faixa de foto + 4 cartões lado a lado */
+.vgrid{grid-template-columns:repeat(4,1fr);grid-auto-rows:auto;align-items:stretch}
+.vstrip{grid-column:1/-1;margin:0 0 4px;border-radius:14px;overflow:hidden;width:100%;height:clamp(200px,26vw,330px);background:#E8DED3}
+.vstrip img{width:100%;height:100%;object-fit:cover;object-position:50% 45%;display:block;transform:scale(1.08);transition:transform 1.8s var(--ease)}
+.vstrip.in img{transform:none}
+.vgrid .vp{padding:26px 20px}
+.vgrid .vp h3{font-size:clamp(1.05rem,1.5vw,1.3rem);letter-spacing:.2em}
+.vgrid .vp .vs{font-size:.66rem;letter-spacing:.14em}
+.vgrid .vp li{font-size:.86rem;padding:10px 0;gap:10px}
+.vgrid .vp li small{font-size:.72rem}
+@media(max-width:1100px){.vgrid{grid-template-columns:repeat(2,1fr)}.vstrip{height:clamp(200px,32vw,280px)}}
+@media(max-width:700px){.vgrid{grid-template-columns:1fr}.vstrip{height:auto;aspect-ratio:4/3}.vgrid .vp{padding:26px 22px}}
+@media(prefers-reduced-motion:reduce){.vstrip img{transform:none;transition:none}}
+/* lista de serviços oferecidos, abaixo da apresentação */
+.svcs8{max-width:1100px;margin:clamp(40px,6vw,72px) auto 0;padding-top:clamp(28px,4vw,48px);border-top:1px solid var(--line);text-align:center}
+.svcs8 h2{font-size:clamp(1.7rem,3vw,2.4rem);margin-bottom:clamp(20px,3vw,32px)}
+.cols8{display:grid;grid-template-columns:repeat(5,1fr);gap:clamp(18px,2.4vw,36px);text-align:left}
+.cols8 h3{font-family:var(--serif);font-weight:400;font-size:1.25rem;color:#6F5440;padding-bottom:8px;border-bottom:1px solid var(--ink);margin-bottom:10px}
+.cols8 ul{list-style:none}
+.cols8 li{padding:5px 0;font-size:.95rem;line-height:1.4}
+.link8{display:inline-block;margin-top:clamp(22px,3vw,34px);font-weight:600;border-bottom:1px solid currentColor;padding-bottom:2px;color:var(--ink);text-decoration:none}
+@media(max-width:900px){.cols8{grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.cols8{grid-template-columns:1fr}}
+/* 4 cena */
+.scene{position:relative;color:#fff;text-align:center;padding-block:clamp(90px,13vw,170px);isolation:isolate;
+  background:linear-gradient(rgba(40,28,20,.45),rgba(40,28,20,.55)),var(--scene-img,none),linear-gradient(120deg,#7A604C,#A58970);background-size:cover;background-position:center}
+.scene{--scene-img:url(cena.jpg)}
+.scene h2{font-size:clamp(2.2rem,5vw,4rem);margin:0 auto 18px;max-width:22ch}
+.scene h2 em{color:#fff}
+.scene p{max-width:40ch;margin:0 auto 28px;font-size:1.1rem;opacity:.95}
+
+/* 5 serviços */
+.pick h2{margin-bottom:10px}
+.pick .sub{color:var(--soft);margin-bottom:clamp(30px,4vw,52px)}
+.tabs{display:grid;grid-template-columns:4fr 7fr;gap:clamp(28px,6vw,90px);align-items:start}
+.tablist{display:flex;flex-direction:column;gap:6px}
+.tab{background:none;border:0;text-align:left;font-family:var(--serif);font-size:clamp(1.6rem,2.8vw,2.3rem);color:#a89c92;padding:10px 0;cursor:pointer;transition:color .3s var(--ease),transform .4s var(--ease)}
+.tab:hover{color:var(--ink)}
+.tab[aria-selected=true]{color:var(--ink);transform:translateX(10px)}
+.tab[aria-selected=true]::before{content:"—";color:var(--mocha);margin-right:10px}
+.box{background:var(--paper);padding:clamp(22px,3.4vw,44px)}
+.panel{display:none}
+.panel.on{display:block;animation:in .6s var(--ease)}
+.panel .lead{font-family:var(--serif);font-style:italic;font-size:1.3rem;line-height:1.3;margin-bottom:18px;color:var(--mocha-d)}
+.prices{list-style:none;margin-bottom:26px}
+.prices li{display:flex;align-items:baseline;gap:14px;padding:11px 0;border-bottom:1px solid var(--line);font-size:1rem}
+.prices li span{flex:1}
+.prices li small{display:block;color:var(--soft);font-size:.85rem;line-height:1.4;margin-top:1px}
+.prices li b{font-weight:600;white-space:nowrap;font-variant-numeric:tabular-nums}
+.prices .grp{font-size:.88rem;color:var(--mocha);font-weight:600;border:0;padding:20px 0 4px}
+
+/* destaque */
+.hl{background:var(--paper)}
+.hl .wrap{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,6vw,90px);align-items:center}
+.hl .ph{aspect-ratio:4/5;max-width:420px;width:100%}
+.phf{margin:0;aspect-ratio:4/5;max-width:420px;width:100%;border-radius:14px;overflow:hidden;background:#E8DED3}
+.phf img{width:100%;height:100%;object-fit:cover;display:block}
+.hl h2{margin-bottom:18px;max-width:14ch}
+.hl p{color:var(--soft);max-width:44ch;margin-bottom:14px}
+.hl .price{font-family:var(--serif);font-size:2rem;color:var(--ink);margin:6px 0 22px}
+.hl .price small{font-family:var(--sans);font-size:.9rem;color:var(--soft)}
+@media(max-width:900px){.hl .wrap{grid-template-columns:1fr}}
+
+/* 6 equipe */
+.team{background:var(--paper)}
+.team .head{display:flex;justify-content:space-between;align-items:end;gap:20px;flex-wrap:wrap;margin-bottom:clamp(30px,4vw,52px)}
+.team .head p{color:var(--soft);max-width:34ch}
+.four{display:grid;grid-template-columns:repeat(5,1fr);gap:clamp(14px,2.4vw,30px)}
+.four .ph{aspect-ratio:3/4;margin-bottom:14px}
+.phteam{margin:0 0 14px;aspect-ratio:3/4;border-radius:14px;overflow:hidden;background:#E8DED3}
+.phteam img{width:100%;height:100%;object-fit:cover;display:block}
+.four h3{font-size:1.45rem}
+.four p{font-size:.92rem;color:var(--soft)}
+.four .role{color:var(--mocha);font-weight:600;margin-bottom:4px}
+
+/* 7 avaliações */
+.rev .top-row{display:flex;align-items:flex-end;gap:24px;flex-wrap:wrap;margin-bottom:clamp(30px,4vw,52px)}
+.score{font-family:var(--serif);font-size:clamp(4.5rem,9vw,7.5rem);line-height:.85;letter-spacing:-.04em}
+.score-t{padding-bottom:6px;color:var(--soft);font-size:.95rem}
+.score-t b{display:block;color:var(--mocha);letter-spacing:3px;font-weight:400}
+.cols{display:grid;grid-template-columns:repeat(3,1fr);gap:0}
+.cols blockquote{padding:6px clamp(18px,3vw,40px);border-left:1px solid var(--line);font-family:var(--serif);font-size:clamp(1.3rem,2vw,1.7rem);line-height:1.25}
+.cols blockquote:first-child{border-left:0;padding-left:0}
+.cols cite{display:block;margin-top:14px;font-family:var(--sans);font-style:normal;font-size:.88rem;color:var(--soft)}
+.rev .link{display:inline-block;margin-top:34px}
+
+/* depoimentos com foto de perfil */
+.rgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(14px,2vw,24px);margin-bottom:34px}
+.rc{margin:0;background:#fff;border:1px solid var(--line);border-radius:14px;padding:clamp(18px,2.4vw,26px);display:flex;flex-direction:column;gap:14px}
+.rh{display:flex;align-items:center;gap:12px}
+.rh b{display:block;font-weight:600;font-size:.95rem;line-height:1.2}
+.rh .st{color:#B8975A;letter-spacing:2px;font-size:.8rem}
+.av{width:44px;height:44px;border-radius:50%;object-fit:cover;flex:none;display:block}
+.av.ini{display:grid;place-items:center;background:#E8DED3;color:#6F5440;font-family:var(--serif);font-size:1.1rem}
+.rc blockquote{font-size:.97rem;line-height:1.6;color:var(--soft)}
+@media(max-width:900px){.rgrid{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.rgrid{grid-template-columns:1fr}}
+/* avaliações em uma fileira só, passando em movimento */
+.rmq{position:relative;width:100vw;margin:0 0 34px calc(50% - 50vw);overflow:hidden;padding:6px 0 12px;-webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)}
+.rrow{display:flex;gap:16px;width:max-content;padding-right:16px;animation:rmove 80s linear infinite}
+.rmq:hover .rrow,.rmq:focus-within .rrow,.rmq:focus .rrow{animation-play-state:paused}
+@keyframes rmove{to{transform:translateX(-50%)}}
+.rrow .rc{width:340px;flex:none}
+@media(max-width:600px){.rrow .rc{width:280px}}
+@media(prefers-reduced-motion:reduce){.rmq{overflow-x:auto;-webkit-mask-image:none;mask-image:none}.rrow{animation:none}.rrow .dup{display:none}}
+/* diário fancy (blog) */
+.blog{padding-top:clamp(48px,7vw,96px)}
+.bhead{text-align:center;margin-bottom:clamp(26px,4vw,44px)}
+.bhead p{color:var(--soft);max-width:46ch;margin:8px auto 0}
+.bhead .bl1{font-family:'Cormorant Garamond',Georgia,serif;font-style:italic;font-weight:500;font-size:clamp(1.3rem,2vw,1.5rem);line-height:1.2;color:#4A3F37;max-width:none;margin:6px auto 0}
+.bhead .bl2{font-family:var(--sans);font-weight:600;font-size:.68rem;letter-spacing:.24em;text-transform:uppercase;color:var(--mocha);max-width:none;margin:0 auto 10px;padding-left:.24em}
+
+.bgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(14px,2vw,26px);max-width:1180px;margin:0 auto}
+.bpost{display:flex;flex-direction:column}
+.bimg{position:relative;aspect-ratio:4/3;border-radius:14px;overflow:hidden;background:#E8DED3;margin-bottom:16px}
+.bimg img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 1.2s var(--ease)}
+.bpost:hover .bimg img{transform:scale(1.06)}
+.btag,.bsoon{position:absolute;top:12px;font-size:.68rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;padding:6px 12px;border-radius:999px}
+.btag{left:12px;background:#fff;color:#6F5440}
+.bsoon{right:12px;background:rgba(35,29,25,.78);color:#fff}
+.bpost h3{font-size:clamp(1.25rem,1.8vw,1.5rem);line-height:1.2;margin-bottom:8px}
+.bpost p{font-size:.95rem;color:var(--soft);max-width:38ch}
+.bcta{text-align:center;margin-top:clamp(28px,4vw,44px)}
+@media(max-width:900px){.bgrid{grid-template-columns:1fr;max-width:460px}}
+.bfeat{display:grid;grid-template-columns:minmax(0,440px) minmax(0,1fr);gap:clamp(24px,5vw,72px);align-items:center;max-width:1000px;margin:0 auto clamp(40px,6vw,72px)}
+.bcar{position:relative;width:min(440px,100%)}
+.btrack{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;border-radius:14px;box-shadow:0 30px 50px -30px rgba(35,29,25,.55);-webkit-overflow-scrolling:touch}
+.btrack::-webkit-scrollbar{display:none}
+.bslide{flex:0 0 100%;scroll-snap-align:center;margin:0;aspect-ratio:4/5;background:#3A2A20}
+.bslide img{width:100%;height:100%;object-fit:cover;display:block}
+.bcount{position:absolute;top:12px;right:12px;z-index:2;background:rgba(35,29,25,.72);color:#fff;font-size:.72rem;font-weight:600;letter-spacing:.08em;padding:5px 11px;border-radius:999px;font-variant-numeric:tabular-nums}
+.bnav{position:absolute;top:50%;z-index:2;width:44px;height:44px;margin-top:-22px;border-radius:50%;background:rgba(255,255,255,.92);color:#231D19;font-size:1.05rem;border:0;cursor:pointer;box-shadow:0 8px 18px -8px rgba(0,0,0,.5);transition:transform .16s var(--ease),background .2s}
+.bnav:hover{background:#fff}.bnav:active{transform:scale(.94)}
+.bnav[hidden]{display:none}
+.bprev{left:10px}.bnext{right:10px}
+.bhint{position:absolute;left:12px;top:12px;z-index:2;background:rgba(255,255,255,.92);color:#231D19;font-size:.78rem;font-weight:600;padding:7px 14px;border-radius:999px;box-shadow:0 8px 18px -10px rgba(0,0,0,.5);animation:nudge 1.8s var(--ease) infinite;transition:opacity .4s}
+.bhint.gone{opacity:0;pointer-events:none}
+@keyframes nudge{0%,100%{transform:translateX(0)}50%{transform:translateX(8px)}}
+.bdots{display:flex;gap:6px;justify-content:center;margin-top:14px}
+.bdot{width:8px;height:8px;border-radius:999px;border:0;cursor:pointer;background:#D9CFC4;transition:width .35s var(--ease),background .3s}
+.bdot.on{width:24px;background:#6F5440}
+.btag2{display:inline-block;font-size:.68rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#6F5440;background:var(--paper);padding:6px 12px;border-radius:999px;margin-bottom:14px}
+.btxt h3{font-family:'Cormorant Garamond',Georgia,serif;font-weight:600;font-size:clamp(1.9rem,3vw,2.3rem);line-height:1.1;margin-bottom:12px}
+.btxt p{color:var(--soft);max-width:40ch;margin-bottom:24px}
+.bchips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:24px}
+.bchip{padding:8px 14px;border-radius:999px;border:0;cursor:pointer;background:none;color:inherit;font:inherit;font-size:.84rem;box-shadow:inset 0 0 0 1px rgba(58,42,32,.28);transition:background .2s,color .2s,transform .16s var(--ease)}
+.bchip:hover{background:#3A2A20;color:#fff}.bchip:active{transform:scale(.96)}
+.bflip{grid-template-columns:minmax(0,1fr) minmax(0,440px);margin-bottom:clamp(40px,6vw,72px)}
+.bflip .btxt{justify-self:end;text-align:left}
+.bsub{text-align:center;font-size:.72rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--soft);margin-bottom:22px}
+@media(max-width:900px){.bfeat,.bflip{grid-template-columns:1fr;justify-items:center}.btxt,.bflip .btxt{width:100%;max-width:460px;justify-self:center}.bflip .bcar{order:-1}}
+@media(prefers-reduced-motion:reduce){.bhint{animation:none}}
+/* 8 fancy girl */
+.fg{background:#fff;overflow:hidden;text-align:center}
+.fg{padding-block:clamp(32px,4vw,56px)}
+.fg h2{max-width:none;margin:0 auto 8px}
+.fgt{display:flex;flex-direction:column;align-items:center;line-height:1.05}
+.fgt .a{font-family:var(--serif);font-weight:400;font-size:clamp(1rem,1.6vw,1.2rem);letter-spacing:0;color:#3A2A20}
+.fgt .b{font-family:'Pinyon Script','Segoe Script',cursive;font-weight:400;font-size:clamp(2.8rem,6vw,4.4rem);line-height:1.05;color:#6B1E2E;margin-top:.14em}
+.fg p.t{color:var(--soft);font-size:.92rem}
+.fg .link{display:inline-block;margin-top:8px;font-size:.88rem}
+.script{font-family:'Pinyon Script','Segoe Script',cursive;font-weight:400;line-height:1.05;color:#6B1E2E}
+.board{position:relative;max-width:1000px;margin:clamp(18px,2.4vw,30px) auto 0;height:clamp(420px,47vw,560px)}
+.board .title{position:absolute;right:2%;top:0;text-align:left;font-size:clamp(1.7rem,3.6vw,2.8rem);line-height:1.02;z-index:6;white-space:nowrap;opacity:0;transform:rotate(-3deg) scale(1.9);transform-origin:70% 60%}
+.mfline{text-align:center;margin-top:clamp(26px,3.4vw,44px)!important;font-family:var(--serif);font-style:italic;font-weight:400;font-size:clamp(1.25rem,2.2vw,1.7rem);line-height:1.2;color:#6F5440;margin:clamp(6px,1.5vw,18px) 0 0}
+.board.in .title{animation:fgstamp .7s cubic-bezier(.2,1.5,.4,1) .15s forwards}
+@keyframes fgstamp{0%{opacity:0;transform:rotate(-9deg) scale(1.9)}55%{opacity:1;transform:rotate(-3deg) scale(.94)}75%{transform:rotate(-3deg) scale(1.03)}100%{opacity:1;transform:rotate(-3deg) scale(1)}}
+.board .xo{position:absolute;right:4%;bottom:4px;font-size:clamp(1.8rem,3.6vw,2.8rem);transform:rotate(-6deg);z-index:6}
+/* colagem com fita em vinho, sobre fundo branco */
+.tp{position:absolute;left:var(--x);top:var(--y);width:min(calc(var(--w) * .88),21%);margin:0;background:#fff;padding:7px;border:1px solid #EFE7DE;box-shadow:0 14px 26px -14px rgba(35,29,25,.45);opacity:0;transform:scale(1.25) rotate(calc(var(--r)*2));transition:opacity .5s var(--ease) calc(var(--k)*140ms + 400ms),transform .6s cubic-bezier(.3,1.5,.5,1) calc(var(--k)*140ms + 400ms)}
+.board.in .tp{opacity:1;transform:rotate(var(--r))}
+.tp .pp{aspect-ratio:var(--ar,4/5);overflow:hidden;background:#EAE2D8}
+.tp .pp img{width:100%;height:100%;object-fit:cover;display:block}
+.tp::before,.tp::after{content:"";position:absolute;width:48px;height:16px;background:rgba(107,30,46,.5);top:-9px}
+.tp::before{left:-12px;transform:rotate(-38deg)}
+.tp::after{right:-12px;transform:rotate(38deg)}
+@media(max-width:700px){.board{height:auto;display:grid;grid-template-columns:1fr 1fr;gap:26px 16px;padding:96px 6px 64px}.board .title{top:6px;left:0;right:0;margin:0;text-align:center;font-size:2rem}.tp{position:relative;left:auto;top:auto;width:auto;align-self:start}.tp .pp{aspect-ratio:4/5}.tp:nth-of-type(odd){margin-top:6px}.board .xo{right:10px;bottom:10px}}
+.tp:last-of-type{}
+@media(max-width:700px){.board .tp:nth-of-type(7){grid-column:1/-1;justify-self:center;width:50%}}
+@media(prefers-reduced-motion:reduce){.board .title{opacity:1;transform:rotate(-3deg);animation:none}.tp{opacity:1;transform:rotate(var(--r));transition:none}}
+
+/* 9 fecho + agenda */
+.end h2{font-size:clamp(2.2rem,5vw,4.2rem);max-width:17ch;margin-bottom:clamp(36px,5vw,60px)}
+/* títulos de seção: mesma tipografia (manuscrita) e mesmo tamanho */
+.hl .script8{margin-bottom:6px;max-width:none}
+.hlsub{font-family:var(--serif);font-style:italic;font-size:clamp(1.15rem,1.8vw,1.4rem);color:var(--mocha);margin:0 0 20px !important;max-width:none !important}
+.end .script8{max-width:none;margin-bottom:clamp(28px,4vw,48px)}
+.revt{margin-bottom:clamp(20px,3vw,34px)}
+.fgt .b{font-size:clamp(2.4rem,4.6vw,3.5rem)}
+
+.end .grid{display:grid;grid-template-columns:7fr 5fr;gap:clamp(30px,6vw,90px);align-items:start}
+.cal{border:1px solid var(--line);padding:clamp(18px,3vw,32px)}
+.cal h3{font-size:1.4rem;margin-bottom:2px}
+.cal .hint{font-size:.9rem;color:var(--soft);margin-bottom:18px}
+.cal-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
+.cal-top b{font-family:var(--serif);font-weight:500;font-size:1.25rem;text-transform:capitalize}
+.cal-top button{width:38px;height:38px;border:1px solid var(--line);background:#fff;cursor:pointer;font-size:.95rem;color:var(--ink);border-radius:50%}
+.cal-top button:hover:not(:disabled){background:var(--paper)}
+.cal-top button:disabled{opacity:.3;cursor:default}
+.cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;text-align:center}
+.cal-grid .dow{font-size:.78rem;color:var(--soft);padding-bottom:6px}
+.cal-grid button{aspect-ratio:1;border:0;border-radius:50%;background:transparent;font:500 .92rem var(--sans);color:var(--ink);cursor:pointer;transition:background .2s,color .2s}
+.cal-grid button:hover:not(:disabled){background:var(--paper)}
+.cal-grid button:disabled{color:#cdc5bc;cursor:default}
+.cal-grid button.today{box-shadow:inset 0 0 0 1px var(--mocha)}
+.cal-grid button.sel{background:var(--ink);color:#fff}
+.cal-svc{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 14px}
+.cal-svc button{padding:7px 15px;border:1px solid var(--line);background:#fff;font:500 .85rem var(--sans);cursor:pointer;color:var(--ink);border-radius:999px}
+.cal-svc button.on{background:var(--ink);border-color:var(--ink);color:#fff}
+.calbtn{display:block;width:100%;text-align:center;padding:15px;background:var(--ink);color:#fff;font-weight:600;font-size:.95rem;border-radius:999px}
+.calbtn[aria-disabled=true]{opacity:.35;pointer-events:none}
+.info address{font-style:normal;font-family:var(--serif);font-size:1.5rem;line-height:1.25;margin-bottom:16px}
+.hours{display:grid;grid-template-columns:auto 1fr;gap:3px 22px;margin-bottom:20px;font-size:.95rem}
+.hours dd{text-align:right;color:var(--soft)}
+.map{margin-top:22px;height:230px;background:var(--paper);border:1px solid var(--line);overflow:hidden}
+.map iframe{width:100%;height:100%;border:0;filter:grayscale(.4)}
+.grid2{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(24px,5vw,72px);align-items:start;margin-bottom:clamp(30px,5vw,56px)}
+.end .map{margin-top:0;height:clamp(260px,32vw,360px)}
+/* onde nos encontrar: linhas com ícone, link e botão bem separados, com animação */
+.info{display:flex;flex-direction:column;gap:0}
+.irow{display:flex;gap:16px;align-items:flex-start;margin-bottom:26px}
+.ico{flex:none;width:38px;height:38px;border-radius:50%;display:grid;place-items:center;color:#8C715B;background:var(--paper);margin-top:2px;transition:transform .5s var(--ease),background .3s,color .3s}
+.irow:hover .ico{transform:scale(1.1) rotate(-6deg);background:#F3E6DA;color:#6F5440}
+.info address{margin-bottom:0}
+.hbox{display:flex;flex-direction:column;gap:10px;min-width:0;flex:1;max-width:340px}
+.hours{margin-bottom:0}
+.open{align-self:flex-start;display:inline-flex;align-items:center;gap:8px;font-size:.78rem;font-weight:600;letter-spacing:.04em;padding:5px 12px;border-radius:999px;background:#EAF2EC;color:#2F6A47}
+.open::before{content:"";width:8px;height:8px;border-radius:50%;background:currentColor;animation:pulse 2s ease-out infinite}
+.open.off{background:#F3ECE6;color:#8A6D58}
+.open.off::before{animation:none}
+@keyframes pulse{0%{box-shadow:0 0 0 0 currentColor}70%{box-shadow:0 0 0 7px transparent}100%{box-shadow:0 0 0 0 transparent}}
+.info{position:relative}
+.info .trail{position:absolute;left:18px;top:42px;bottom:96px;width:1px;background:repeating-linear-gradient(to bottom,rgba(140,113,91,.5) 0 4px,transparent 4px 9px);transform:scaleY(0);transform-origin:top;transition:transform 1.4s var(--ease) .5s}
+.info:has(.rv.in) .trail{transform:none}
+.irow .maplink{margin:6px 0 0;align-self:center}
+.irow:has(.maplink){margin-bottom:34px;align-items:center}
+.irow:has(.maplink) .ico{margin-top:0}
+@media(prefers-reduced-motion:reduce){.info .trail{transform:none;transition:none}}
+.maplink{align-self:flex-start;position:relative;font-weight:600;font-size:.95rem;padding-bottom:3px;margin:0}
+.maplink::before{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:rgba(35,29,25,.25)}
+.maplink::after{content:"";position:absolute;left:0;bottom:0;height:1px;width:100%;background:#231D19;transform:scaleX(0);transform-origin:left;transition:transform .5s var(--ease)}
+.maplink:hover::after{transform:scaleX(1)}
+.maplink span,.maplink{display:inline-block}
+.wabtn{align-self:flex-start;margin-left:54px;position:relative;overflow:hidden;display:inline-flex;align-items:center;gap:10px;background:#1F6F4A;color:#fff;padding:15px 28px;border-radius:999px;font-weight:600;font-size:.95rem;box-shadow:0 14px 26px -14px rgba(31,111,74,.7);transition:transform .25s var(--ease),box-shadow .3s}
+.wabtn::after{content:"";position:absolute;inset:0;background:linear-gradient(105deg,transparent 35%,rgba(255,255,255,.35) 50%,transparent 65%);transform:translateX(-130%);animation:wash 4.5s ease-in-out 1.5s infinite}
+@keyframes wash{0%,70%{transform:translateX(-130%)}100%{transform:translateX(130%)}}
+.wabtn:hover{transform:translateY(-2px);box-shadow:0 18px 30px -14px rgba(31,111,74,.8)}
+.wabtn:active{transform:scale(.97)}
+.wabtn svg{transition:transform .4s var(--ease)}
+.wabtn:hover svg{transform:rotate(-12deg) scale(1.12)}
+@media(max-width:860px){.irow{margin-bottom:22px}.wabtn{align-self:stretch;justify-content:center;margin-left:0}}
+@media(prefers-reduced-motion:reduce){.open::before,.wabtn::after{animation:none}.ico,.wabtn,.wabtn svg,.maplink::after{transition:none}}
+
+/* dúvidas: seção própria, título à esquerda e perguntas à direita */
+.duv{padding-top:clamp(24px,3vw,40px)}
+.duvgrid{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:clamp(28px,6vw,96px);align-items:start;border-top:1px solid var(--line);padding-top:clamp(40px,6vw,72px)}
+.duvhead{position:sticky;top:96px}
+.duvhead .script8{margin-bottom:12px}
+.duvsub{color:var(--soft);max-width:30ch;font-size:.98rem}
+.duv .faq{margin-top:0;max-width:none}
+@media(max-width:860px){.duvgrid{grid-template-columns:1fr}.duvhead{position:static}}
+
+@media(max-width:860px){.grid2{grid-template-columns:1fr}}
+.faq{margin-top:34px;border-top:1px solid var(--line)}
+details{border-bottom:1px solid var(--line)}
+summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:16px;padding:16px 0;font-weight:600;font-size:.98rem}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";font-weight:400;font-size:1.4rem;line-height:1;color:var(--mocha);transition:transform .3s var(--ease)}
+details[open] summary::after{transform:rotate(45deg)}
+details p{padding:0 30px 16px 0;color:var(--soft);font-size:.95rem}
+.faqlink{font-weight:600;color:var(--ink);border-bottom:1px solid currentColor}
+.faqlink:hover{color:#6F5440}
+
+
+footer{padding:26px var(--pad);display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px 30px;font-size:.88rem;color:var(--soft);border-top:1px solid var(--line)}
+footer a:hover{color:var(--ink)}
+
+.fab{position:fixed;right:max(16px,env(safe-area-inset-right,0px));bottom:max(16px,env(safe-area-inset-bottom,0px));z-index:60;width:58px;height:58px;border-radius:50%;background:#25D366;color:#fff;display:grid;place-items:center;box-shadow:0 8px 22px rgba(35,29,25,.28);transition:transform .3s var(--ease)}
+.fab:hover{transform:scale(1.06)}
+.fab::after{content:"";position:absolute;inset:0;border-radius:50%;border:2px solid #25D366;animation:fabp 2.8s ease-out infinite}
+@keyframes fabp{0%{transform:scale(1);opacity:.55}70%,100%{transform:scale(1.5);opacity:0}}
+@media(prefers-reduced-motion:reduce){.fab::after{animation:none;display:none}}
+.fab svg{width:28px;height:28px;fill:currentColor}
+
+@media(max-width:900px){
+  .menu nav{display:none}
+  .why .head,.tabs,.end .grid{grid-template-columns:1fr}
+  .three{grid-template-columns:1fr;max-width:420px}
+  .four{grid-template-columns:1fr 1fr}
+  .cols{grid-template-columns:1fr;gap:26px}
+  .cols blockquote,.cols blockquote:first-child{border-left:0;padding:0 0 26px;border-bottom:1px solid var(--line)}
+  .tablist{flex-direction:row;flex-wrap:wrap;gap:4px 20px}
+  .tab[aria-selected=true]{transform:none;border-bottom:2px solid var(--mocha)}
+  .tab[aria-selected=true]::before{content:""}
+}
+</style>
+</head>
+<body>
+
+<!-- Menu (aparece ao rolar) -->
+<div class="menu" id="menu">
+  <a class="brand" href="#top">Espaço Fancy</a>
+  <nav><a href="#porque">O espaço</a><a href="#servicos">Preços</a><a href="#avaliacoes">Avaliações</a><a href="#equipe">Equipe</a><a href="#diario">Fancy-se</a><a href="#agendar">Endereço</a><a href="#duvidas">Dúvidas</a></nav>
+  <a class="btn" href="#" data-wa="Oi! Vim pelo site e quero agendar um horário.">Agendar</a>
+</div>
+
+<!-- 1. ABERTURA. Foto de fundo: salve como hero.jpg ao lado deste arquivo. -->
+<header class="hero" id="top">
+  <!-- Vídeo: assets/hero-v3.mp4 (sem áudio, 10s): esmalte escorrendo no frasco Espaço Fancy e revelação do salão. -->
+  <video class="hero-video" src="assets/hero-v3.mp4" poster="assets/hero-v3.jpg" autoplay muted loop playsinline preload="auto" aria-hidden="true"></video>
+  <div class="top"><a href="#" data-wa="Oi! Vim pelo site e quero agendar um horário.">Agendar</a></div>
+  <div class="hero-center">
+    <div class="logo"><small>ESPAÇO</small><b>Fancy</b></div>
+    <p>selfcare, beauty &amp; nails</p>
+  </div>
+  <!-- CONSULTA DE HORÁRIO: abre o WhatsApp com os dados escolhidos -->
+  <section class="check" id="consulta" aria-label="Consultar horário">
+    <form id="checkForm" novalidate>
+      <div class="f"><label for="ckDate">Data</label><input id="ckDate" type="date" required></div>
+      <div class="f"><label for="ckSvc">Serviço</label>
+        <select id="ckSvc">
+          <optgroup label="Unhas"><option>Esmaltação em gel</option><option>Manicure + esmaltação gel</option><option>Blindagem</option><option>Banho de gel</option><option>Aplicação de fibra</option><option>Manicure</option></optgroup><optgroup label="Pés"><option>Spa dos pés</option><option>Pedicure</option><option>Pedicure e manicure</option></optgroup><optgroup label="Sobrancelha"><option>Design de sobrancelha</option><option>Design com henna</option><option>Design com brow</option></optgroup><optgroup label="Depilação"><option>Design com buço</option><option>Rosto</option><option>Axila</option><option>Combo design + buço + coloração</option></optgroup><optgroup label="Cabelo"><option>Escova simples</option><option>Chapinha</option><option>Babyliss</option><option>Plano de escova</option></optgroup>
+        </select></div>
+      <div class="f"><label for="ckTime">Período</label>
+        <select id="ckTime">
+          <option value="manhã (9h às 12h)">Manhã, 9h às 12h</option><option value="tarde (12h às 18h)">Tarde, 12h às 18h</option><option value="fim do dia (18h às 20h)">Fim do dia, 18h às 20h</option>
+        </select></div>
+      <button class="go" type="submit" id="ckGo">Consultar</button>
+    </form>
+    <p class="msg" id="ckMsg" role="status" aria-live="polite"></p>
+  </section>
+</header>
+
+
+
+
+<!-- 3. POR QUE -->
+<section class="why" id="porque">
+  <div class="about8">
+    <div class="mag6">
+      <div class="txt6">
+        <h2 class="script8 rv">Conheça o Espaço Fancy</h2>
+        <p class="p6 rv" style="--d:1">O que começou em 2021 como um estúdio de unhas da Jéssica cresceu e ganhou uma nova fase. O Espaço Fancy está de casa nova, agora no térreo da Galeria Manoel Caetano, em Boa Viagem, com um ambiente renovado e serviços de unhas, sobrancelhas e cabelo.</p>
+        <p class="p6b rv" style="--d:1">Um lugar pra cuidar do visual, colocar a conversa em dia e aproveitar a praticidade de encontrar tudo no mesmo espaço. E o melhor: pertinho da praia, como sempre foi.</p>
+      </div>
+      <div class="pic6w">
+      <figure class="pic6 rv" style="--d:1">
+        <!-- FOTO do ambiente (bancada, nichos em arco e luminárias) -->
+        <img src="assets/espaco.jpg" alt="Ambiente do Espaço Fancy: bancada de unhas com cadeiras brancas, luminárias douradas e nichos em arco com esmaltes" loading="lazy">
+      </figure>
+      <!-- FOTO da dona: confirmar com a Jéssica que pode usar -->
+      <figure class="owner"><img src="assets/f-jessica.jpg" alt="Jéssica, dona do Espaço Fancy"></figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- SERVIÇOS E VALORES: painéis de preço alternados com fotos. Trocar as fotos em assets/val-*.jpg e espaco.jpg -->
+<section class="vals" id="servicos">
+  <h2 class="vtitle rv">Serviços e valores</h2>
+  <div class="vgrid">
+    <article class="vp rv" data-w="Unhas"><figure class="vcph"><img src="assets/precos-unhas.jpg" alt="Mãos com unhas em gel vinho, com anéis, apoiadas sobre a almofada de manicure" loading="lazy" style="object-position:50% 50%"></figure><h3>Unhas</h3><p class="vs">gel, fibra e esmaltação</p><ul><li><span>Esmaltação em gel</span><b>R$35</b></li><li><span>Manicure + esmaltação gel</span><b>R$70</b></li><li><span>Blindagem<small>Uma camada de gel para fortalecer e proteger</small></span><b>R$30</b></li><li><span>Banho de gel<small>Fortalece a unha natural: quebra menos e o esmalte dura mais</small></span><b>R$140</b></li><li><span>Aplicação de fibra<small>Alongamento em fibra de vidro</small></span><b>R$210</b></li><li><span>Manicure</span><b>R$40</b></li></ul><a class="vcta" href="#" data-wa="Oi! Vim pelo site e quero agendar unhas.">Agendar unhas</a></article>
+    <article class="vp rv" data-w="Pés"><figure class="vcph"><img src="assets/f-pes.jpg" alt="Cliente com pés e mãos com esmaltação delicada" loading="lazy" style="object-position:50% 30%"></figure><h3>Pés</h3><p class="vs">spa, pedicure e manicure</p><ul><li><span>Spa dos pés<small>Tratamento relaxante e hidratante</small></span><b>R$80</b></li><li><span>Pedicure</span><b>R$40</b></li><li class="g">Mãos e pés</li><li><span>Pedicure e manicure<small>Cuidado completo, com cutilagem</small></span><b>R$65</b></li></ul><a class="vcta" href="#" data-wa="Oi! Vim pelo site e quero agendar o spa dos pés.">Agendar spa dos pés</a></article>
+    <article class="vp rv" data-w="Sobrancelha"><figure class="vcph"><img src="assets/precos-sobrancelha.jpg" alt="Design de sobrancelha: profissional de luvas pretas ajustando a sobrancelha de uma cliente" loading="lazy" style="object-position:50% 50%"></figure><h3>Sobrancelha</h3><p class="vs">design, henna, brow e depilação</p><ul><li><span>Design de sobrancelha<small>No formato do seu rosto</small></span><b>R$70</b></li><li><span>Design com henna<small>Preenche, define e realça o olhar</small></span><b>R$80</b></li><li><span>Design com brow<small>Alinha os fios e deixa mais cheia, sem mudar o formato</small></span><b>R$130</b></li><li class="g">Depilação</li><li><span>Design com buço</span><b>R$80</b></li><li><span>Rosto</span><b>R$65</b></li><li><span>Axila</span><b>R$50</b></li><li><span>Combo design + buço + coloração</span><b>R$105</b></li></ul><a class="vcta" href="#" data-wa="Oi! Vim pelo site e quero agendar sobrancelha.">Agendar sobrancelha</a></article>
+    <article class="vp rv" data-w="Cabelo"><figure class="vcph"><img src="assets/precos-cabelo.jpg" alt="Profissional escovando o cabelo castanho de uma cliente no salão" loading="lazy" style="object-position:50% 38%"></figure><h3>Cabelo</h3><p class="vs">escova e plano de escova</p><ul><li><span>Escova simples<small>A partir de, com lavagem simples</small></span><b>R$70</b></li><li class="g">Adicionais</li><li><span>Chapinha</span><b>R$25</b></li><li><span>Babyliss</span><b>R$30</b></li><li class="g">Plano de escova</li><li><span>Pacote 1, cabelo P<small>5 escovas simples + lavagem</small></span><b>R$325</b></li><li><span>Pacote 1, cabelo P<small>4 escovas + tratamento Vella</small></span><b>R$340</b></li><li><span>Pacote 2, cabelo M<small>5 escovas simples + lavagem</small></span><b>R$375</b></li><li><span>Pacote 2, cabelo M<small>4 escovas + tratamento Vella</small></span><b>R$380</b></li></ul><a class="vcta" href="#" data-wa="Oi! Vim pelo site e quero saber do Plano de Escova.">Quero saber do Plano de Escova</a></article>
+  </div>
+</section>
+
+
+<!-- DESTAQUE: banho de gel. Confirmar com a dona se esse é o serviço que ela mais quer vender -->
+<section class="hl">
+  <div class="wrap">
+    <!-- FOTO: unha com banho de gel -->
+    <figure class="phf rv"><img src="assets/f-gel-natural.jpg" alt="Unhas com banho de gel, resultado natural" loading="lazy" style="object-position:50% 45%"></figure>
+    <div>
+      <h2 class="script8 rv">Banho de gel</h2>
+      <p class="hlsub rv">Unhas mais fortes, por mais tempo.</p>
+      <p class="rv">A Jéssica é especialista em banho de gel e cuida de cada etapa. O resultado é uma unha delicada, forte e sem aspecto grosso ou artificial: ninguém olha e pensa “isso é gel”.</p>
+      <p class="rv">Ela quebra menos, o esmalte dura mais e você aproveita melhor o tempo entre uma visita e outra.</p>
+      <p class="rv">Primeira vez? A gente avalia suas unhas e indica o melhor caminho pra você.</p>
+      <div class="price rv">R$140 <small>banho de gel com a Jéssica</small></div>
+      <a class="btn rv" href="#" data-wa="Oi! Vim pelo site e quero agendar banho de gel.">Quero agendar meu banho de gel</a>
+    </div>
+  </div>
+</section>
+
+<!-- 7. AVALIAÇÕES -->
+<section class="rev" id="avaliacoes">
+  <div class="wrap">
+    <h2 class="script8 revt rv">O que dizem sobre nós</h2>
+    <div class="top-row rv">
+      <div class="score">5,0</div>
+      <div class="score-t"><b>★★★★★</b>37 avaliações no Google</div>
+    </div>
+    <div class="rmq rv" role="region" aria-label="Avaliações das clientes no Google" tabindex="0">
+      <div class="rrow">
+        <figure class="rc"><div class="rh"><span class="av ini" aria-hidden="true">VN</span><div><b>Victória Nascimento</b><span class="st" aria-label="5 estrelas">★★★★★</span></div></div><blockquote>“Faço minhas unhas com a Jéssica há 1 ano e amo! É o melhor resultado de unhas em gel de Recife, isso eu posso garantir. […] Toda vez me apresenta uma cor nova que é a minha cara hahaha. Recomendo demais!”</blockquote></figure>
+        <figure class="rc"><div class="rh"><span class="av ini" aria-hidden="true">SC</span><div><b>Sofia Calmon</b><span class="st" aria-label="5 estrelas">★★★★★</span></div></div><blockquote>“Faço minhas unhas no Espaço Fancy e recomendo de olhos fechados! Além do serviço ser impecável e feito com muita qualidade, o ambiente é super acolhedor. […] É um lugar onde a gente se sente bem desde que entra até a hora de sair.”</blockquote></figure>
+        <figure class="rc"><div class="rh"><span class="av ini" aria-hidden="true">ID</span><div><b>Idalina Duarte</b><span class="st" aria-label="5 estrelas">★★★★★</span></div></div><blockquote>“Há cerca de dois anos faço minhas unhas de gel e sobrancelhas no Espaço Fancy. O trabalho é excelente, unhas ficam sempre perfeitas, atendimento gentil e o horário marcado é respeitado.”</blockquote></figure>
+        <figure class="rc"><div class="rh"><span class="av ini" aria-hidden="true">AK</span><div><b>Allegry Kethelly</b><span class="st" aria-label="5 estrelas">★★★★★</span></div></div><blockquote>“Ambiente maravilhoso, o atendimento é cheio de sorrisos e com muito acolhimento. As profissionais são incríveis, já fui atendida por todas, mas a Jéssica é fora da curva, tanto na entrega do trabalho quanto nos detalhes.”</blockquote></figure>
+        <figure class="rc"><div class="rh"><span class="av ini" aria-hidden="true">CB</span><div><b>Ceci Buarque</b><span class="st" aria-label="5 estrelas">★★★★★</span></div></div><blockquote>“A Fancy é um espaço sensacional e excepcional, sou muito bem atendida todas as vezes que vou lá! […] Independente do que você for fazer lá (unha, cabelo, sobrancelha) você além de sair linda! Pois as meninas de lá dão um show em tudo que faz”</blockquote></figure>
+        <figure class="rc"><div class="rh"><span class="av ini" aria-hidden="true">RF</span><div><b>Rachel Feitosa</b><span class="st" aria-label="5 estrelas">★★★★★</span></div></div><blockquote>“Excelente espaço e profissionais. Conversa, ri e ainda sai mais linda.”</blockquote></figure>
+        <figure class="rc dup" aria-hidden="true"><div class="rh"><span class="av ini" aria-hidden="true">VN</span><div><b>Victória Nascimento</b><span class="st" aria-label="5 estrelas">★★★★★</span></div></div><blockquote>“Faço minhas unhas com a Jéssica há 1 ano e amo! É o melhor resultado de unhas em gel de Recife, isso eu posso garantir. […] Toda vez me apresenta uma cor nova que é a minha cara hahaha. Recomendo demais!”</blockquote></figure>
+        <figure class="rc dup" aria-hidden="true"><div class="rh"><span class="av ini" aria-hidden="true">SC</span><div><b>Sofia Calmon</b><span class="st" aria-label="5 estrelas">★★★★★</span></div></div><blockquote>“Faço minhas unhas no Espaço Fancy e recomendo de olhos fechados! Além do serviço ser impecável e feito com muita qualidade, o ambiente é super acolhedor. […] É um lugar onde a gente se sente bem desde que entra até a hora de sair.”</blockquote></figure>
+        <figure class="rc dup" aria-hidden="true"><div class="rh"><span class="av ini" aria-hidden="true">ID</span><div><b>Idalina Duarte</b><span class="st" aria-label="5 estrelas">★★★★★</span></div></div><blockquote>“Há cerca de dois anos faço minhas unhas de gel e sobrancelhas no Espaço Fancy. O trabalho é excelente, unhas ficam sempre perfeitas, atendimento gentil e o horário marcado é respeitado.”</blockquote></figure>
+        <figure class="rc dup" aria-hidden="true"><div class="rh"><span class="av ini" aria-hidden="true">AK</span><div><b>Allegry Kethelly</b><span class="st" aria-label="5 estrelas">★★★★★</span></div></div><blockquote>“Ambiente maravilhoso, o atendimento é cheio de sorrisos e com muito acolhimento. As profissionais são incríveis, já fui atendida por todas, mas a Jéssica é fora da curva, tanto na entrega do trabalho quanto nos detalhes.”</blockquote></figure>
+        <figure class="rc dup" aria-hidden="true"><div class="rh"><span class="av ini" aria-hidden="true">CB</span><div><b>Ceci Buarque</b><span class="st" aria-label="5 estrelas">★★★★★</span></div></div><blockquote>“A Fancy é um espaço sensacional e excepcional, sou muito bem atendida todas as vezes que vou lá! […] Independente do que você for fazer lá (unha, cabelo, sobrancelha) você além de sair linda! Pois as meninas de lá dão um show em tudo que faz”</blockquote></figure>
+        <figure class="rc dup" aria-hidden="true"><div class="rh"><span class="av ini" aria-hidden="true">RF</span><div><b>Rachel Feitosa</b><span class="st" aria-label="5 estrelas">★★★★★</span></div></div><blockquote>“Excelente espaço e profissionais. Conversa, ri e ainda sai mais linda.”</blockquote></figure>
+      </div>
+    </div>
+    <a class="link rv" href="https://g.page/r/Cbpy-jSjBp0pEAI/review" target="_blank" rel="noopener">Ler todas as avaliações no Google</a>
+  </div>
+</section>
+
+<!-- 6. EQUIPE -->
+<section class="team" id="equipe">
+  <div class="wrap">
+    <div class="head">
+      <h2 class="script8 rv">Quem atende você</h2>
+      <p class="rv">A equipe cresceu desde 2021, mas o atendimento continua o mesmo de quando era só a Jéssica.</p>
+    </div>
+    <div class="four">
+      <!-- FOTOS da equipe. Depois, trocar a frase de cada uma por algo que ela mesma diga -->
+      <article class="rv"><figure class="phteam"><img src="assets/team-jessica.jpg" alt="Jéssica, dona do Espaço Fancy, sorrindo" loading="lazy"></figure><h3>Jéssica</h3><p class="role">Fundadora · Unhas</p><p>Dona do Fancy e especialista em banho de gel. Deixa as unhas com resultado natural.</p></article>
+      <article class="rv" style="--d:1"><figure class="phteam"><img src="assets/team-suelen.jpg" alt="Suelen, do Espaço Fancy, sorrindo" loading="lazy"></figure><h3>Suelen</h3><p class="role">Sobrancelha</p><p>Design de sobrancelha e buço na linha.</p></article>
+      <article class="rv" style="--d:2"><figure class="phteam"><img src="assets/team-karol.jpg" alt="Karol, do Espaço Fancy, sorrindo" loading="lazy"></figure><h3>Karol</h3><p class="role">Unhas</p><p>As clientes elogiam a mão leve dela.</p></article>
+      <article class="rv" style="--d:3"><figure class="phteam"><img src="assets/team-will.jpg" alt="Will, do Espaço Fancy, fazendo escova" loading="lazy"></figure><h3>Will</h3><p class="role">Escova e cabelo</p><p>Escova e tratamentos.</p></article>
+      <article class="rv" style="--d:4"><figure class="phteam"><img src="assets/team-amanda.jpg" alt="Amanda, do Espaço Fancy, sorrindo diante do letreiro" loading="lazy" style="object-position:50% 30%"></figure><h3>Amanda</h3><p class="role">Anfitriã</p><p>Recebe você e cuida da agenda.</p></article>
+    </div>
+  </div>
+</section>
+
+<!-- DIÁRIO FANCY (blog). Os três posts abaixo são só os temas. Trocar pelos posts reais; as dicas devem vir da Jéssica e da equipe -->
+<section class="blog" id="diario">
+  <div class="bhead">
+    <p class="bl2 rv">Beauty, ideas &amp; a little bit of everything</p>
+    <h2 class="script8 rv" style="--d:1">Fancy-se</h2>
+    <p class="bl1 rv" style="--d:2">Porque uma coisa Fancy puxa outra.</p>
+  </div>
+<div class="bfeat">
+    <div class="bcar rv" role="group" aria-roledescription="carrossel" aria-label="Inspirações de unhas da primavera">
+      <div class="btrack" tabindex="0"><figure class="bslide" aria-roledescription="slide" aria-label="1 de 8"><img src="assets/blog-27.jpg" alt="Capa: inspirações de unhas da primavera, do Espaço Fancy, com mãos em várias cores sobre fundo marrom"></figure><figure class="bslide" aria-roledescription="slide" aria-label="2 de 8"><img src="assets/blog-20.jpg" alt="Unhas em marrom chocolate, em quatro fotos" loading="lazy"></figure><figure class="bslide" aria-roledescription="slide" aria-label="3 de 8"><img src="assets/blog-21.jpg" alt="Unhas em vermelho vinho, em quatro fotos" loading="lazy"></figure><figure class="bslide" aria-roledescription="slide" aria-label="4 de 8"><img src="assets/blog-22.jpg" alt="Francesinha em vinho, em quatro fotos" loading="lazy"></figure><figure class="bslide" aria-roledescription="slide" aria-label="5 de 8"><img src="assets/blog-23.jpg" alt="Unhas em verde oliva, em quatro fotos" loading="lazy"></figure><figure class="bslide" aria-roledescription="slide" aria-label="6 de 8"><img src="assets/blog-24.jpg" alt="Francesinha clássica, em quatro fotos" loading="lazy"></figure><figure class="bslide" aria-roledescription="slide" aria-label="7 de 8"><img src="assets/blog-25.jpg" alt="Unhas em marrom cromado, em quatro fotos" loading="lazy"></figure><figure class="bslide" aria-roledescription="slide" aria-label="8 de 8"><img src="assets/blog-26.jpg" alt="Unhas em rosa leitoso, em quatro fotos" loading="lazy"></figure></div>
+      <span class="bcount" aria-live="polite">1 / 8</span>
+      <button type="button" class="bnav bprev" aria-label="Anterior" hidden>←</button>
+      <button type="button" class="bnav bnext" aria-label="Próxima">→</button>
+      <span class="bhint" aria-hidden="true">Deslize →</span>
+      <div class="bdots"><button type="button" class="bdot on" aria-label="Ir para Capa" data-i="0"></button><button type="button" class="bdot" aria-label="Ir para Marrom chocolate" data-i="1"></button><button type="button" class="bdot" aria-label="Ir para Vermelho vinho" data-i="2"></button><button type="button" class="bdot" aria-label="Ir para Francesinha vinho" data-i="3"></button><button type="button" class="bdot" aria-label="Ir para Verde oliva" data-i="4"></button><button type="button" class="bdot" aria-label="Ir para Francesinha" data-i="5"></button><button type="button" class="bdot" aria-label="Ir para Marrom cromado" data-i="6"></button><button type="button" class="bdot" aria-label="Ir para Rosa leitoso" data-i="7"></button></div>
+    </div>
+    <div class="btxt rv" style="--d:1">
+      <span class="btag2">Inspiração</span>
+      <h3>Inspirações de unhas da primavera</h3>
+      <p>Sete cores e acabamentos para a nova estação. Deslize para ver todos e, se gostar de algum, é só chamar a gente.</p>
+      <a class="btn" href="#" data-wa="Oi! Vi as inspirações de unhas da primavera no site e quero agendar.">Quero agendar minhas unhas</a>
+    </div>
+  </div>
+  <div class="bfeat bflip">
+    <div class="btxt rv">
+      <span class="btag2">Guia Fancy de técnicas</span>
+      <h3>O que suas unhas pedem?</h3>
+      <p>Cada unha precisa de um cuidado diferente. Deslize e encontre a técnica feita pra você: alongamento, banho de gel, fibra, esmaltação ou blindagem.</p>
+      <a class="btn" href="#" data-wa="Oi! Vi o guia de técnicas no site e quero uma avaliação das minhas unhas.">Quero uma avaliação</a>
+    </div>
+    <div class="bcar rv" style="--d:1" role="group" aria-roledescription="carrossel" aria-label="Guia Fancy de técnicas: o que suas unhas pedem?">
+      <div class="btrack" tabindex="0"><figure class="bslide" aria-roledescription="slide" aria-label="1 de 7"><img src="assets/guia-1.jpg" alt="Capa do guia Fancy de técnicas: o que suas unhas pedem? Mãos com unhas em degradê rosado e anéis dourados"></figure><figure class="bslide" aria-roledescription="slide" aria-label="2 de 7"><img src="assets/guia-2.jpg" alt="Alongamento em gel: para quem tem vergonha das unhas curtas e roídas, unhas longas e elegantes que devolvem a segurança" loading="lazy"></figure><figure class="bslide" aria-roledescription="slide" aria-label="3 de 7"><img src="assets/guia-3.jpg" alt="Banho de gel: para quem tem unhas que vivem quebrando, reforça a estrutura natural e protege a unha enquanto ela cresce" loading="lazy"></figure><figure class="bslide" aria-roledescription="slide" aria-label="4 de 7"><img src="assets/guia-4.jpg" alt="Fibra de vidro: para quem quer unhas resistentes com acabamento natural, estrutura leve com visual fino e sofisticado" loading="lazy"></figure><figure class="bslide" aria-roledescription="slide" aria-label="5 de 7"><img src="assets/guia-5.jpg" alt="Esmaltação em gel: para quem tem esmalte que descasca rápido, brilho intenso e mãos impecáveis por mais tempo" loading="lazy"></figure><figure class="bslide" aria-roledescription="slide" aria-label="6 de 7"><img src="assets/guia-6.jpg" alt="Blindagem: para quem tem unhas fracas, finas e que dobram fácil, o reforço ideal para manter a unha natural mais forte" loading="lazy"></figure><figure class="bslide" aria-roledescription="slide" aria-label="7 de 7"><img src="assets/guia-7.jpg" alt="Ainda na dúvida? A gente escolhe com você: na avaliação, olhamos suas unhas de perto e indicamos a técnica ideal" loading="lazy"></figure></div>
+      <span class="bcount" aria-live="polite">1 / 7</span>
+      <button type="button" class="bnav bprev" aria-label="Anterior" hidden>←</button>
+      <button type="button" class="bnav bnext" aria-label="Próxima">→</button>
+      <span class="bhint" aria-hidden="true">Deslize →</span>
+      <div class="bdots"><button type="button" class="bdot on" aria-label="Ir para Capa" data-i="0"></button><button type="button" class="bdot" aria-label="Ir para Alongamento em gel" data-i="1"></button><button type="button" class="bdot" aria-label="Ir para Banho de gel" data-i="2"></button><button type="button" class="bdot" aria-label="Ir para Fibra de vidro" data-i="3"></button><button type="button" class="bdot" aria-label="Ir para Esmaltação em gel" data-i="4"></button><button type="button" class="bdot" aria-label="Ir para Blindagem" data-i="5"></button><button type="button" class="bdot" aria-label="Ir para Avaliação" data-i="6"></button></div>
+    </div>
+  </div>
+  <p class="bsub rv">Em breve no Diário</p>
+  <div class="bgrid">
+    <article class="bpost rv">
+      <div class="bimg"><img src="assets/f-gel-natural.jpg" alt="Unhas com banho de gel, resultado natural" loading="lazy" style="object-position:50% 40%"><span class="btag">Unhas</span><span class="bsoon">Em breve</span></div>
+      <h3>Banho de gel: como cuidar pra durar mais</h3>
+      <p>Dicas da Jéssica para manter a unha forte e o brilho por mais tempo.</p>
+    </article>
+    <article class="bpost rv" style="--d:1">
+      <div class="bimg"><img src="assets/f-sobrancelha.jpg" alt="Design de sobrancelha em atendimento no Espaço Fancy" loading="lazy" style="object-position:50% 45%"><span class="btag">Sobrancelha</span><span class="bsoon">Em breve</span></div>
+      <h3>Henna ou brow: qual combina com você?</h3>
+      <p>Como a Suelen escolhe o desenho e o acabamento para cada rosto.</p>
+    </article>
+    <article class="bpost rv" style="--d:2">
+      <div class="bimg"><img src="assets/f-cabelo.jpg" alt="Cabelo castanho com ondas e brilho" loading="lazy" style="object-position:50% 40%"><span class="btag">Cabelo</span><span class="bsoon">Em breve</span></div>
+      <h3>Como fazer a escova durar mais dias</h3>
+      <p>Passo a passo do Will para cuidar do cabelo depois do salão.</p>
+    </article>
+  </div>
+  <div class="bcta rv"><a class="link" href="https://instagram.com/espaco_fancy" target="_blank" rel="noopener">Acompanhe no @espaco_fancy</a></div>
+</section>
+
+<!-- 8. FANCY GIRL -->
+<section class="fg" id="fancy-girls">
+  <h2 class="fgt rv"><span class="a">Depois da primeira vez, você vira</span><span class="b">Fancy Girl</span></h2>
+  <p class="t rv">É como a gente chama as clientes do Espaço. Postou a unha nova? Marca a gente.</p>
+  <a class="link rv" href="https://instagram.com/espaco_fancy" target="_blank" rel="noopener">@espaco_fancy</a>
+  <div class="board rv">
+    <span class="script title">Fancy Girls<br>do Espaço</span>
+    <!-- Fotos das clientes Fancy Girls. Confirmar autorização de cada uma para publicar -->
+    <figure class="tp" style="--k:0;--r:-5deg;--ar:4/5;--x:3%;--y:24%;--w:180px"><div class="pp"><img src="assets/fg-4.jpg" alt="Mão com unhas nude perolado segurando um sorvete de duas bolas" loading="lazy" style="object-position:50% 62%"></div></figure>
+    <figure class="tp" style="--k:1;--r:3deg;--ar:1/1;--x:27%;--y:16%;--w:220px"><div class="pp"><img src="assets/fg-6.jpg" alt="Cliente de cabelo cacheado ruivo, com a mão no rosto e unhas vinho" loading="lazy" style="object-position:50% 38%"></div></figure>
+    <figure class="tp" style="--k:2;--r:-3deg;--ar:3/4;--x:54%;--y:22%;--w:170px"><div class="pp"><img src="assets/fg-2.jpg" alt="Cliente ao telefone, de óculos escuros, com unhas vermelhas e anel prateado" loading="lazy" style="object-position:50% 52%"></div></figure>
+    <figure class="tp" style="--k:3;--r:5deg;--ar:4/5;--x:74%;--y:36%;--w:180px"><div class="pp"><img src="assets/fg-3.jpg" alt="Cliente posando com a mão no alto, unhas vermelhas e anel prateado" loading="lazy" style="object-position:50% 38%"></div></figure>
+    <figure class="tp" style="--k:4;--r:4deg;--ar:1/1;--x:14%;--y:60%;--w:200px"><div class="pp"><img src="assets/fg-5.jpg" alt="Mãos com unhas rosa leitoso segurando um croissant de pistache" loading="lazy" style="object-position:50% 55%"></div></figure>
+    <figure class="tp" style="--k:5;--r:-2deg;--ar:16/10;--x:50%;--y:58%;--w:230px"><div class="pp"><img src="assets/fg-1.jpg" alt="Cliente sorrindo com as mãos perto do rosto, mostrando as unhas nude rosadas" loading="lazy" style="object-position:52% 30%"></div></figure>
+    <figure class="tp" style="--k:6;--r:3deg;--ar:9/8;--x:33%;--y:62%;--w:190px"><div class="pp"><img src="assets/fg-7.jpg" alt="Cliente rindo de alegria, mostrando as unhas com bolinhas pretas" loading="lazy" style="object-position:50% 40%"></div></figure>
+    <span class="script xo">xo</span>
+  </div>
+  <p class="mfline rv">meu momento fancy</p>
+</section>
+
+<!-- 9. FECHO + AGENDA -->
+<section class="end" id="agendar">
+  <div class="wrap">
+    <h2 class="script8 rv">Onde nos encontrar</h2>
+    <div class="grid2">
+      <div class="info"><span class="trail" aria-hidden="true"></span>
+        <div class="irow rv"><span class="ico"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s7-6.1 7-11a7 7 0 1 0-14 0c0 4.9 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></span><address>Av. Conselheiro Aguiar, 2891<br>Galeria Manoel Caetano, térreo<br>Boa Viagem, Recife</address></div>
+        <div class="irow rv" style="--d:1"><span class="ico"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span><div class="hbox"><span class="open" id="openNow" hidden></span><dl class="hours"><dt>Segunda a sexta</dt><dd>9h às 20h</dd><dt>Sábado</dt><dd>9h às 18h</dd><dt>Domingo</dt><dd>Fechado</dd></dl></div></div>
+        <div class="irow rv" style="--d:2"><span class="ico"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 4 3 6v14l6-2 6 2 6-2V4l-6 2-6-2z"/><path d="M9 4v14M15 6v14"/></svg></span><a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Av.+Conselheiro+Aguiar,+2891,+Boa+Viagem,+Recife" target="_blank" rel="noopener">Abrir no Google Maps</a></div>
+        <a class="wabtn rv" style="--d:3" href="#" data-wa="Oi! Vim pelo site e quero marcar meu momento fancy."><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M12.04 2a9.9 9.9 0 0 0-8.5 14.9L2 22l5.25-1.38A9.9 9.9 0 1 0 12.04 2zm5.8 14.1c-.25.7-1.4 1.34-1.93 1.38-.5.05-1.12.07-1.8-.12-.42-.13-.95-.31-1.64-.6-2.88-1.25-4.76-4.15-4.9-4.34-.14-.19-1.17-1.56-1.17-2.98 0-1.42.74-2.12 1-2.4.27-.29.58-.36.78-.36h.55c.18 0 .42-.07.65.5.25.58.84 2.01.91 2.16.07.14.12.31.02.5-.1.19-.14.31-.29.48-.14.17-.3.38-.43.5-.14.14-.29.3-.12.58.17.29.74 1.22 1.6 1.98 1.1.98 2.03 1.28 2.32 1.43.29.14.46.12.63-.07.17-.2.72-.84.91-1.13.19-.29.38-.24.65-.14.26.1 1.68.8 1.97.94.29.14.48.22.55.34.07.12.07.7-.18 1.4z"/></svg><span>Chamar no WhatsApp</span></a>
+      </div>
+      <div class="map"><iframe title="Mapa do Espaço Fancy" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=Av.+Conselheiro+Aguiar,+2891,+Boa+Viagem,+Recife&output=embed"></iframe></div>
+    </div>
+    
+  </div>
+</section>
+
+<!-- DÚVIDAS -->
+<section class="duv" id="duvidas">
+  <div class="wrap duvgrid">
+    <div class="duvhead">
+      <h2 class="script8 rv">Dúvidas</h2>
+      <p class="duvsub rv" style="--d:1">As que a gente mais ouve. Se a sua não estiver aqui, é só chamar.</p>
+    </div>
+    <div class="rv" style="--d:2">
+<div class="faq">
+          <details><summary>Nunca fui. Como é a primeira vez?</summary><p>Você chega, a gente pergunta como você gosta, mostra as opções e não empurra nada. Se ficar na dúvida da cor, relaxa: todo mundo fica.</p></details>
+          <details><summary>Como faço pra agendar?</summary><p>Pela barra de horário lá no topo do site ou direto no <a class="faqlink" href="#" data-wa="Oi! Vim pelo site e quero agendar um horário.">WhatsApp</a>. A gente confirma o horário com você por lá.</p></details>
+          <details><summary>Precisa agendar?</summary><p>Melhor, assim seu horário fica garantido. Pra encaixe no dia, chama no WhatsApp que a gente vê.</p></details>
+          <details><summary>Quanto custa?</summary><p>Os valores de unhas, pés, sobrancelha e cabelo estão em <a class="faqlink" href="#servicos">Serviços e valores</a>. Se ficar na dúvida de qual serviço combina com você, a gente avalia e indica.</p></details>
+          <details><summary>Qual a diferença entre banho de gel, blindagem e fibra?</summary><p>O banho de gel reforça a unha natural e protege enquanto ela cresce. A blindagem é um reforço mais leve, pra manter a unha natural e deixá-la mais forte. A fibra de vidro dá uma estrutura leve e resistente, com visual fino. Na dúvida, a gente olha suas unhas de perto e indica a técnica ideal.</p></details>
+          <details><summary>Vai ficar natural?</summary><p>É o que a gente mais cuida. Se quiser algo mais marcante, é só pedir.</p></details>
+          <details><summary>Posso fazer unha, sobrancelha e cabelo numa visita só?</summary><p>O Espaço reúne tudo no mesmo lugar, então dá pra combinar. Chama a gente no <a class="faqlink" href="#" data-wa="Oi! Vim pelo site e quero combinar mais de um serviço na mesma visita.">WhatsApp</a> pra ver os horários.</p></details>
+          <!-- A CONFIRMAR com a dona: estacionamento, formas de pagamento, duração do gel e da brow lamination -->
+        </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span>© Espaço Fancy · Boa Viagem, Recife</span>
+  <span><a href="https://wa.me/5581995015402" target="_blank" rel="noopener">(81) 99501-5402</a> · <a href="https://instagram.com/espaco_fancy" target="_blank" rel="noopener">@espaco_fancy</a></span>
+</footer>
+
+<a class="fab" href="#" data-wa="Oi! Vim pelo site e quero agendar um horário." aria-label="Agendar pelo WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.3 14c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.2-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.8s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.4 0 .5l-.4.6-.4.4c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1c.2-.3.4-.2.6-.1l2 1c.3.1.5.2.5.3.1.2.1.8-.1 1.3Z"/></svg>
+</a>
+
+<script>
+(function(){
+  var WA='5581995015402';
+  function wa(t){return 'https://wa.me/'+WA+'?text='+encodeURIComponent(t)}
+  document.querySelectorAll('[data-wa]').forEach(function(a){a.href=wa(a.dataset.wa);a.target='_blank';a.rel='noopener'});
+
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.1});
+  document.querySelectorAll('.rv').forEach(function(el){io.observe(el)});
+
+  // menu aparece depois da abertura
+  var menu=document.getElementById('menu'),hero=document.getElementById('top');
+
+    function pastHero(){var past=hero.getBoundingClientRect().bottom<120;menu.classList.toggle('show',past)}
+  var tick=false;window.addEventListener('scroll',function(){if(!tick){tick=true;requestAnimationFrame(function(){tick=false;pastHero()})}},{passive:true});pastHero();
+
+
+  // consulta de horário -> WhatsApp
+  (function(){
+    var f=document.getElementById('checkForm'),dt=document.getElementById('ckDate'),svc=document.getElementById('ckSvc'),tm=document.getElementById('ckTime'),pro=document.getElementById('ckPro')||{value:''},go=document.getElementById('ckGo'),msg=document.getElementById('ckMsg');
+    var dn=['domingo','segunda-feira','terça-feira','quarta-feira','quinta-feira','sexta-feira','sábado'];
+    function iso(d){return d.getFullYear()+'-'+('0'+(d.getMonth()+1)).slice(-2)+'-'+('0'+d.getDate()).slice(-2)}
+    var t=new Date();t.setHours(0,0,0,0);
+    dt.min=iso(t);
+    var n=new Date(t);n.setDate(n.getDate()+1);if(n.getDay()===0)n.setDate(n.getDate()+1);
+    dt.value=iso(n);
+    function parse(v){var p=v.split('-');return new Date(+p[0],+p[1]-1,+p[2])}
+    function check(){
+      msg.className='msg';msg.textContent='';go.disabled=false;
+      if(!dt.value){msg.className='msg err';msg.textContent='Escolha uma data.';go.disabled=true;return false}
+      var d=parse(dt.value);
+      if(d<t){msg.className='msg err';msg.textContent='Essa data já passou. Escolha uma data a partir de hoje.';go.disabled=true;return false}
+      if(d.getDay()===0){msg.className='msg err';msg.textContent='Domingo estamos fechados. Escolha de segunda a sábado.';go.disabled=true;return false}
+      if(d.getDay()===6&&tm.value.indexOf('18h às 20h')>-1){msg.className='msg err';msg.textContent='Aos sábados fechamos às 18h. Escolha manhã ou tarde.';go.disabled=true;return false}
+      msg.textContent='A gente confirma o horário com você pelo WhatsApp.';return true}
+    [dt,svc,tm].forEach(function(el){el.addEventListener('change',function(){f.classList.add('touched');check()})});check();
+    f.addEventListener('submit',function(e){
+      e.preventDefault();if(!check())return;
+      var d=parse(dt.value),ds=('0'+d.getDate()).slice(-2)+'/'+('0'+(d.getMonth()+1)).slice(-2);
+      var m='Oi! Vim pelo site e queria confirmar se tem horário disponível para '+svc.value.charAt(0).toLowerCase()+svc.value.slice(1)+' em '+dn[d.getDay()]+', '+ds+', '+tm.value+(pro.value?', com a '+pro.value:'')+'.';
+      if(pro.value==='Will')m=m.replace('com a Will','com o Will');
+      window.open('https://wa.me/5581995015402?text='+encodeURIComponent(m),'_blank','noopener')});
+  })();
+
+  // abas
+  var tabs=document.querySelectorAll('.tab');
+  tabs.forEach(function(t){t.addEventListener('click',function(){
+    tabs.forEach(function(x){x.setAttribute('aria-selected',x===t)});
+    document.querySelectorAll('.panel').forEach(function(p){p.classList.toggle('on',p.id===t.getAttribute('aria-controls'))});
+  })});
+
+  document.querySelectorAll('[data-tab]').forEach(function(a){a.addEventListener('click',function(){
+    var t=document.getElementById('t-'+a.dataset.tab);if(t)t.click()})});
+
+  })();
+</script>
+<script>
+(function(){var h=document.getElementById('top'),v=h&&h.querySelector('.hero-video');if(!v)return;
+var CUT=5.5,on=function(x){h.classList.toggle('reveal',x)};
+v.addEventListener('timeupdate',function(){on(v.currentTime>=CUT)});
+v.addEventListener('seeked',function(){on(v.currentTime>=CUT)});
+var started=false;v.addEventListener('playing',function(){started=true});v.addEventListener('error',function(){on(true)});setTimeout(function(){if(!started)on(true)},9000);})();
+</script>
+<script>
+(function(){document.querySelectorAll('.vp h3').forEach(function(h){var t=h.textContent;h.setAttribute('aria-label',t);h.innerHTML=Array.from(t).map(function(c,i){return '<span class="l" aria-hidden="true" style="--i:'+i+'">'+c+'</span>'}).join('')})})();
+</script>
+<script>
+(function(){var RM=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+document.querySelectorAll('.bcar').forEach(function(car){var tr=car.querySelector('.btrack');if(!tr)return;
+var dots=car.querySelectorAll('.bdot'),cnt=car.querySelector('.bcount'),hint=car.querySelector('.bhint'),prev=car.querySelector('.bprev'),next=car.querySelector('.bnext'),N=tr.querySelectorAll('.bslide').length,cur=0;
+function go(i){i=Math.max(0,Math.min(N-1,i));tr.scrollTo({left:i*tr.clientWidth,behavior:RM?'auto':'smooth'})}
+function upd(){var i=Math.round(tr.scrollLeft/Math.max(1,tr.clientWidth));if(i===cur)return;cur=i;cnt.textContent=(i+1)+' / '+N;dots.forEach(function(d,k){d.classList.toggle('on',k===i)});prev.hidden=i===0;next.hidden=i===N-1;if(i>0)hint.classList.add('gone')}
+tr.addEventListener('scroll',function(){window.requestAnimationFrame(upd)},{passive:true});
+prev.addEventListener('click',function(){go(cur-1)});next.addEventListener('click',function(){go(cur+1)});
+dots.forEach(function(d){d.addEventListener('click',function(){go(+d.dataset.i)})});
+tr.addEventListener('keydown',function(e){if(e.key==='ArrowRight'){e.preventDefault();go(cur+1)}else if(e.key==='ArrowLeft'){e.preventDefault();go(cur-1)}});
+window.addEventListener('resize',function(){tr.scrollLeft=cur*tr.clientWidth})});})();
+</script>
+<script>
+(function(){var el=document.getElementById('openNow');if(!el)return;
+function parts(){try{var f=new Intl.DateTimeFormat('pt-BR',{timeZone:'America/Recife',weekday:'short',hour:'numeric',minute:'numeric',hour12:false}).formatToParts(new Date());var o={};f.forEach(function(p){o[p.type]=p.value});return o}catch(e){return null}}
+var p=parts();if(!p)return;
+var wd=(p.weekday||'').toLowerCase().replace('.','').slice(0,3),h=+p.hour%24,m=+p.minute,t=h*60+m;
+var map={dom:0,seg:1,ter:2,qua:3,qui:4,sex:5,sab:6,sáb:6},d=map[wd];if(d===undefined)return;
+var close=d===0?null:(d===6?18*60:20*60),open=9*60;
+el.hidden=false;
+if(close&&t>=open&&t<close){var left=close-t;el.textContent=left<=60?'Aberto agora · fecha em '+left+' min':'Aberto agora';}
+else{el.classList.add('off');el.textContent=d===0?'Fechado hoje · abrimos amanhã às 9h':(t<open?'Abrimos hoje às 9h':'Fechado agora · abrimos '+(d===6?'segunda':'amanhã')+' às 9h');}
+})();
+</script>
+</body>
+</html>
