@@ -551,8 +551,8 @@ footer a:hover{color:var(--ink)}
 
 <!-- 1. ABERTURA. Foto de fundo: salve como hero.jpg ao lado deste arquivo. -->
 <header class="hero" id="top">
-  <!-- Vídeo: assets/hero-v3.mp4 (sem áudio, 10s): esmalte escorrendo no frasco Espaço Fancy e revelação do salão. -->
-  <video class="hero-video" src="assets/hero-v3.mp4" poster="assets/hero-v3.jpg" autoplay muted loop playsinline preload="auto" aria-hidden="true"></video>
+  <!-- Vídeo: assets/hero-v4.mp4 (sem áudio, 10s): fachada, equipe e serviços do Espaço Fancy. -->
+  <video class="hero-video" src="assets/hero-v4.mp4" poster="assets/hero-v4.jpg" autoplay muted loop playsinline preload="auto" aria-hidden="true"></video>
   <div class="top"><a href="#" data-wa="Oi! Vim pelo site e quero agendar um horário.">Agendar</a></div>
   <div class="hero-center">
     <div class="logo"><small>ESPAÇO</small><b>Fancy</b></div>
@@ -861,7 +861,7 @@ footer a:hover{color:var(--ink)}
 </script>
 <script>
 (function(){var h=document.getElementById('top'),v=h&&h.querySelector('.hero-video');if(!v)return;
-var CUT=5.5,on=function(x){h.classList.toggle('reveal',x)};
+var CUT=1.2,on=function(x){h.classList.toggle('reveal',x)};
 v.addEventListener('timeupdate',function(){on(v.currentTime>=CUT)});
 v.addEventListener('seeked',function(){on(v.currentTime>=CUT)});
 var started=false;v.addEventListener('playing',function(){started=true});v.addEventListener('error',function(){on(true)});setTimeout(function(){if(!started)on(true)},9000);})();
